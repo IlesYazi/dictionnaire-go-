@@ -2,40 +2,22 @@ package main
 
 import (
     "fmt"
-    "maps"
 )
+
 
 func main() {
 
-    m := make(map[string]int)
+    entries := map[string]string{}
 
-    m["k1"] = 7
-    m["k2"] = 13
+    entries["iles"] = "étudiant"
+    entries["aziz"] = "prof"
+    entries["estiam"] = "école"
 
-    fmt.Println("map:", m)
+    fmt.Println(entries["iles"])
 
-    v1 := m["k1"]
-    fmt.Println("v1:", v1)
+    delete(entries, "estiam")
 
-    v3 := m["k3"]
-    fmt.Println("v3:", v3)
-
-    fmt.Println("len:", len(m))
-
-    delete(m, "k2")
-    fmt.Println("map:", m)
-
-    clear(m)
-    fmt.Println("map:", m)
-
-    _, prs := m["k2"]
-    fmt.Println("prs:", prs)
-
-    n := map[string]int{"foo": 1, "bar": 2}
-    fmt.Println("map:", n)
-
-    n2 := map[string]int{"foo": 1, "bar": 2}
-    if maps.Equal(n, n2) {
-        fmt.Println("n == n2")
+    for word, definition := range entries {
+        fmt.Printf("%s: %s\n", word, definition)
     }
 }
