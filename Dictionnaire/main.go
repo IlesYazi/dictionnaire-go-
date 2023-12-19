@@ -1,25 +1,23 @@
 package main
 
 import (
-    "dictionary"
-    "fmt"
+	"Dictionnaire/dictionary"
+	"fmt"
 )
 
 
 func main() {
 
-    entries := map[string]string{}
+    d := dictionary.New()
 
-    entries["iles"] = "étudiant"
-    entries["aziz"] = "prof"
-    entries["estiam"] = "école"
+    d.Add("estiam", "école")
+    d.Add("iles", "étudiant")
+    d.Add("aziz", "prof")
 
+    fmt.Println(d.Get("estiam"))
+    
+    d.Remove("estiam")
 
-    Remove(entries,"estiam")
-	Get(entries,"iles")
-	List(entries)
-
-    for word, definition := range entries {
-        fmt.Printf("%s: %s\n", word, definition)
-    }
+    d.List()
+    
 }

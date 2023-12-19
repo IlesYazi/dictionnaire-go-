@@ -1,12 +1,18 @@
 package dictionary
 
 import (
-    "fmt"
+	"fmt"
 )
 
 type Dictionary struct {
     entries map[string]string
 }
+
+func New()Dictionary{
+    entries := make(map[string]string)
+    return Dictionary{entries}
+}
+
 
 func (d *Dictionary) Add(word, definition string) {
     d.entries[word] = definition
