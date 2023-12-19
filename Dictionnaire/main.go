@@ -1,22 +1,10 @@
 package main
 
 import (
+    "dictionary"
     "fmt"
 )
 
-
-func Remove(entries map[string]string,word string)map[string]string{
-    delete(entries, word)
-	return entries
-}
-
-func Get(entries map[string]string,word string)string{
-	return entries[word]
-}
-
-func List(entries map[string]string)map[string]string{
-	return entries
-}
 
 func main() {
 
