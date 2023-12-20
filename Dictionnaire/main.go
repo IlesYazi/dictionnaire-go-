@@ -13,11 +13,13 @@ func main() {
     d.Add("estiam", "école")
     d.Add("iles", "étudiant")
     d.Add("aziz", "prof")
+    d.List()
 
+    fmt.Println("**** Definition de estiam :")
     fmt.Println(d.Get("estiam"))
-    
-    d.Remove("estiam")
 
+    fmt.Println("**** Supprimer estiam :")
+    d.Remove("estiam")
     d.List()
     
 }
