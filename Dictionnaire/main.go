@@ -8,7 +8,7 @@ import (
 
 func main() {
 
-    d := dictionary.New()
+    d := dictionary.New("testJsonFile")
 
     d.Add("estiam", "école")
     d.Add("iles", "étudiant")
