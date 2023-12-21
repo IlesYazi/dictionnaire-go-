@@ -1,9 +1,7 @@
-package dictionary
+package dictionary2
 
 import (
 	"encoding/json"
-	"fmt"
-	"net/http"
 	"os"
 )
 
@@ -72,20 +70,4 @@ func (d *Dictionary) Load() error {
     }
     err = json.Unmarshal(data, &d.data)
     return err
-}
-
-func (d *Dictionary) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-    if r.Method == http.MethodPost {
-        d.Add(r.FormValue("word"), r.FormValue("definition"))
-        d.Save()
-    } else if r.Method == http.MethodGet {
-        if r.FormValue("word") != "" {
-            w.Write([]byte(d.Get(r.FormValue("word"))))
-        } else {
-            w.Write([]byte(fmt.Sprintf("Liste des mots : %v", d.List())))
-        }
-    } else if r.Method == http.MethodDelete {
-        d.Remove(r.FormValue("word"))
-        d.Save()
-    }
 }

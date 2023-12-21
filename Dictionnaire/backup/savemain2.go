@@ -3,7 +3,6 @@ package main
 import (
 	"Dictionnaire/dictionary"
 	"fmt"
-	"net/http"
 )
 
 func main() {
@@ -36,9 +35,5 @@ func main() {
     if err != nil {
         fmt.Println(err)
     }
-
-    // Démarrer le serveur HTTP
-    http.HandleFunc("/", dict.ServeHTTP)
-    http.ListenAndServe(":8090", nil)
 
 }
